@@ -7,15 +7,12 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
-const express = require('express');
-const expressWs = require('express-ws');
-
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '8080');
+var port = normalizePort(process.env.PORT || '4567');
 app.set('port', port);
 
 /**
@@ -23,9 +20,6 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-expressWs(app, server);
-const chart = require('../api/ws');
-app.use('/ws', chart);
 
 /**
  * Listen on provided port, on all network interfaces.

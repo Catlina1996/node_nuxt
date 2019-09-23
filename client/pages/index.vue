@@ -1,48 +1,76 @@
 <template>
-  <div class="container">
-
-  </div>
+    <div>
+        <div class="con-top">
+            <nuxt-child @counts_length="setCounts" />
+        </div>
+        <div class="con-pages">
+          <nuxt-link v-if="current > 2" class="pointer" :to="{path: `/`}">回首页</nuxt-link>
+          <nuxt-link v-if="current != 1" class="pointer" :to="{path: `/${Number(current) - 1}`}">上一页</nuxt-link>
+          <nuxt-link v-if="counts > current * 10" class="pointer" :to="{path: `/${Number(current) + 1}`}">下一页</nuxt-link>
+        </div>
+        <div class="con-bottom"></div>
+    </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    Logo
-  }
+    props: {
+
+    },
+
+    data() {
+        return {
+            current: '',
+            counts: 5
+        }
+    },
+
+    components: {
+
+    },
+
+    mounted() {
+      
+    },
+
+    watch: {
+      '$route': {
+        handler(val) {
+          
+          this.current = this.$route.params.pages || 1
+        },
+        immediate: true
+      }
+    },
+
+    methods: {
+      setCounts(val) {
+        console.log(val)
+        this.counts = val
+      }
+    },
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+<style scoped lang='scss'>
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+    .con-pages {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 30px 0;
+        margin-top: 50px;
+        a {
+          margin-right: 20px;
+          font-size: 18px;
+        }
+        a:last-child {
+          margin: 0;
+        }
+    }
 
-.links {
-  padding-top: 15px;
-}
 </style>

@@ -2,7 +2,7 @@ import Cookie from 'js-cookie'
 
 export default function({ $axios, redirect }) {
 
-  $axios.defaults.baseURL = process.env.baseUrl;
+  $axios.defaults.baseURL = process.env.BASE_URL;
 
   $axios.onRequest(config => {
     if (config.data) {
@@ -24,8 +24,8 @@ export default function({ $axios, redirect }) {
   $axios.onError(error => {
     // console.log("错误", error);
     const code = parseInt(error.response && error.response.status);
-    if (code === 404) {
-      redirect('/404')
+    if (code === 500) {
+      redirect('/')
     }
   })
 

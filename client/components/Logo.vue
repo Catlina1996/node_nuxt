@@ -1,79 +1,113 @@
 <template>
-  <div class="VueToNuxtLogo">
-    <div class="Triangle Triangle--two" />
-    <div class="Triangle Triangle--one" />
-    <div class="Triangle Triangle--three" />
-    <div class="Triangle Triangle--four" />
-  </div>
+    <div>
+        <section>
+            <a href="/" class="logo">
+                <svg class="animation" height="60">
+                    <text
+                        stroke-dasharray="90 310"
+                        stroke-width="1px"
+                        text-shadow="0 0 1px #9b59b6"
+                        stroke="#9b59b6"
+                        fill="#fafafa"
+                        text-transform="uppercase"
+                        y="80%"
+                        x="50%"
+                        text-anchor="middle"
+                        style="font-size: 30px"
+                    >
+                        DuoLa口袋不放糖
+                        <animate
+                        attributeName="stroke-dashoffset"
+                        begin="-4s"
+                        dur="8s"
+                        from="0"
+                        to="-400"
+                        repeatCount="indefinite"
+                        />
+                    </text>
+                    <text
+                        stroke-dasharray="90 310"
+                        stroke-width="1px"
+                        text-shadow="0 0 1px #9b59b6"
+                        stroke="#9b59b6"
+                        fill="#414141"
+                        text-transform="uppercase"
+                        y="80%"
+                        x="50%"
+                        text-anchor="middle"
+                        style="font-size: 30px"
+                    >
+                        DuoLa口袋不放糖
+                        <animate
+                        attributeName="stroke-dashoffset"
+                        begin="-8s"
+                        dur="8s"
+                        from="0"
+                        to="-400"
+                        repeatCount="indefinite"
+                        />
+                    </text>
+                </svg>
+            </a>
+            <p>我要上九天揽月，我要下五洋捉鳖~</p>
+        </section>
+    </div>
 </template>
 
-<style>
-.VueToNuxtLogo {
-  display: inline-block;
-  animation: turn 2s linear forwards 1s;
-  transform: rotateX(180deg);
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  width: 245px;
+<script>
+
+export default {
+    props: {
+
+    },
+
+    data() {
+        return {
+
+        }
+    },
+
+    components: {
+
+    },
+
+    mounted() {
+
+    },
+
+    watch: {
+
+    },
+
+    methods: {
+
+    },
+}
+</script>
+
+
+<style scoped lang='scss'>
+
+.logo {
+    display: inline-block;
+    position: relative;
 }
 
-.Triangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
+.logo::after {
+    content: '';
+    width: 300px;
+    height: 1px;
+    background-color: #c1c1c1;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
 }
 
-.Triangle--one {
-  border-left: 105px solid transparent;
-  border-right: 105px solid transparent;
-  border-bottom: 180px solid #41b883;
+p {
+    margin: 0;
+    text-align: center;
+    position: relative;
+    top: 30px;
 }
 
-.Triangle--two {
-  top: 30px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 87.5px solid transparent;
-  border-right: 87.5px solid transparent;
-  border-bottom: 150px solid #3b8070;
-}
-
-.Triangle--three {
-  top: 60px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 70px solid transparent;
-  border-right: 70px solid transparent;
-  border-bottom: 120px solid #35495e;
-}
-
-.Triangle--four {
-  top: 120px;
-  left: 70px;
-  animation: godown 0.5s linear forwards 3s;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 60px solid #fff;
-}
-
-@keyframes turn {
-  100% {
-    transform: rotateX(0deg);
-  }
-}
-
-@keyframes godown {
-  100% {
-    top: 180px;
-  }
-}
-
-@keyframes goright {
-  100% {
-    left: 70px;
-  }
-}
 </style>

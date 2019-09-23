@@ -7,7 +7,7 @@ class Chart {
   }
 
   connect () {
-    this.webSocket = new WebSocket(`ws://localhost:8080/ws`);
+    this.webSocket = new WebSocket(`ws://localhost:4567/ws`);
   }
 
   onopen() {

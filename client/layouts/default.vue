@@ -1,26 +1,64 @@
 <template>
-  <div>
-    <Nav />
-    <nuxt />
+  <div class="main">
+    <header class="head mu-item-title" :style="{backgroundColor: bgOpacity}">
+      <LOGO />
+      <div class="head-right">
+        <Theme />
+        <MUSIC />
+      </div>
+    </header>
+    <div class="container-box">
+      <div class="container-left">
+        <LEFT />
+      </div>
+      <div class="container-middle">
+        <nuxt />
+      </div>
+      <div class="container-right">
+        <RIGHT />
+      </div>
+    </div>
   </div>
 </template>
 <script>
-  import Nav from '~/components/navigation'
+import LOGO from '~/components/logo'
+import MUSIC from '~/components/music'
+import Theme from '~/components/theme'
+import LEFT from '~/components/index/left.vue'
+import RIGHT from '~/components/index/right.vue'
+
+
   export default {
     data() {
       return {
-
+        bgOpacity: 1
       }
     },
     components: {
-      Nav
+      LOGO,
+      MUSIC,
+      Theme,
+      LEFT,
+      RIGHT
+    },
+
+    mounted() {
+
+    },
+
+    methods: {
+      
+    },
+
+    watch: {
+      
     }
   }
 </script>
 <style lang="scss">
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  // font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  //   Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -32,24 +70,6 @@ html {
   height: 100%;
 }
 
-body {
-  width: 100%;
-  height: 100%;
-  background-color: #F5F5F5;
-}
-
-body::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #00B7FF;
-}
-
-body::-webkit-scrollbar-track {
-  background-color: #F5F5F5;
-}
 
 #__nuxt {
   width: 100%;
@@ -71,6 +91,7 @@ body::-webkit-scrollbar-track {
   text-align: justify;
   font-size: 16px;
   box-sizing: border-box;
+  font-family: 'JSfont','RHYZT';
 }
 
 *,
@@ -84,32 +105,62 @@ li {
   list-style: none;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.main::after {
+  width: 100%;
+  height: 100%;
+  background-image: url('../static/bg.jpg');
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-size: 100% 100%;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: left;
+  opacity: 0.2;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.head {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  overflow: unset;
+  .head-right {
+    display: flex;
+    flex-direction: row;
+    width: 120px;
+  }
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.container-box {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  // min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  margin-top: 70px;
+  padding: 0 20px;
+  .container-left {
+    width: 200px;
+    position: sticky;
+    top: 200px;
+    left: 0;
+  }
+  .container-middle {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .container-right {
+    width: 300px;
+    padding: 15px 10px;
+  }
 }
 </style>

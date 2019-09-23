@@ -53,7 +53,7 @@
           if(res.status == 200) {
             Cookie.set('auth', res.data.token, {  expires: 60 * 60 * 24 });
             that.$router.push({
-              path: '/yuntai'
+              path: '/'
             })
           }
         })
