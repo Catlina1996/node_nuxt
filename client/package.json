@@ -6,7 +6,7 @@
     "private": true,
     "scripts": {
         "dev": "cross-env BASE_URL=http://localhost:4567 NODE_ENV=development nodemon server/index.js --watch server",
-        "build": "cross-env BASE_URL=http://localhost:4567 NODE_ENV=production nuxt build",
+        "build": "cross-env BASE_URL=http://47.89.183.196:4567 NODE_ENV=production nuxt build",
         "start": "cross-env BASE_URL=http://localhost:4567 NODE_ENV=production node server/index.js",
         "generate": "nuxt generate"
     },
