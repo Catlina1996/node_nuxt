@@ -1,8 +1,10 @@
 import Cookies from 'js-cookie'
 
 const app = {
-  state: {
-    language: Cookies.get('language') || 'zh'
+  state(){
+	  return {
+		  language: Cookies.get('language') || 'zh'
+	  }
   },
   mutations: {
     SET_LANGUAGE: (state, language) => {
