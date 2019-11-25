@@ -47,6 +47,7 @@ export default {
     methods: {
       setCounts(val) {
         console.log(val)
+        
         this.counts = val
       }
     },
